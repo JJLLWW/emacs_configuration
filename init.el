@@ -1,15 +1,48 @@
 ; basic usability
 (fset 'yes-or-no-p 'y-or-n-p)  ; Ask for y/n instead of yes/no
 (setq confirm-kill-processes nil)
-(desktop-save-mode 1)
-(setq inhibit-startup-message t)
-(load-theme 'wombat)
+(desktop-save-mode 1) ; save the desktop
+(setq inhibit-startup-message t) ; no splash screen
+(load-theme 'wombat) ; theme that isn't painful to look at
 (global-linum-mode t)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-(setq make-backup-files nil)
+(menu-bar-mode -1) ; disable GUI elements
+(toggle-scroll-bar -1) ; ...
+(tool-bar-mode -1) ; ...
+(setq make-backup-files nil) ; don't make backup files
 (define-coding-system-alias 'UTF-8 'utf-8)
+
+; disable 'electric-indent-mode' globally, as it  makes \n remove all leading
+; whitespace on the last line. Also messes up comments in elisp
+(electric-indent-mode -1)
+
+; always use spaces instead of tabs for indentation (setq-default sets buffer local value globally)
+(setq-default indent-tabs-mode nil)
+
+; number of spaces to replace tabs with
+(setq-default tab-width 4)
+
+; let tab behave as normal if 
+(setq tab-always-indent t)
+
+; () autocompletion in elisp mode
+(add-hook 'emacs-lisp-mode-hook 'electric-pair-local-mode)
+
+(defun (jw-indent) (interactive) 
+  (let ((cur_line (thing-at-point 'line t)))
+    (progn
+      ()
+    )
+  )
+)
+; have return match the indentation of the last line in all modes.
+;; (defun jw-newline-match-indentation () (interactive)
+;;     (let (()) 
+;;     )
+;; )
+
+;; (global-set-key (kbd "RET") 'jw-newline-match-indentation)
+;; (global-set-key (kbd "<C-return>") (lambda () (interactive) (progn (end-of-line) (jw-newline-match-indentation))))
+; (global-set-key (kbd "RET") 'newline)
 
 ; don't have the cursor blink in any buffer
 (setq blink-cursor-mode nil)
@@ -45,9 +78,9 @@
 )
 
 (defun select-line () (interactive) (progn (move-beginning-of-line nil)
-			     (set-mark-command nil)
-			     (move-end-of-line nil)
-		      )
+                 (set-mark-command nil)
+                 (move-end-of-line nil)
+              )
        )
 
 (global-set-key (kbd "<f9>") 'new-shell)
@@ -55,7 +88,7 @@
 
 ; switching windows
 (when (fboundp 'windmove-default-keybindings)
-	  (windmove-default-keybindings))
+      (windmove-default-keybindings))
 
 ; resizing windows
 (global-set-key (kbd "M-<right>") 'shrink-window-horizontally)
