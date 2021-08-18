@@ -11,6 +11,9 @@
 (setq make-backup-files nil) ; don't make backup files
 (define-coding-system-alias 'UTF-8 'utf-8)
 
+; always highlight matching parantheses
+(show-paren-mode t)
+
 ; disable 'electric-indent-mode' globally, as it  makes \n remove all leading
 ; whitespace on the last line. Also messes up comments in elisp
 (electric-indent-mode -1)
@@ -27,13 +30,14 @@
 ; () autocompletion in elisp mode
 (add-hook 'emacs-lisp-mode-hook 'electric-pair-local-mode)
 
-(defun (jw-indent) (interactive) 
-  (let ((cur_line (thing-at-point 'line t)))
-    (progn
-      ()
-    )
-  )
-)
+;; (defun (jw-indent) (interactive) 
+;;   (let ((cur_line (thing-at-point 'line t)))
+;;     (progn
+;;       ()
+;;     )
+;;   )
+;; )
+
 ; have return match the indentation of the last line in all modes.
 ;; (defun jw-newline-match-indentation () (interactive)
 ;;     (let (()) 
