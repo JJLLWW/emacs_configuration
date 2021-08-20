@@ -4,14 +4,21 @@
 
 (straight-use-package 'lsp-mode)
 
-;; nil => not in hook 
-(defvar lsp-c-hook nil)
-
-(defun jw-toggle-lsp-c-hook () (interactive)
-  (if (eq lsp-c-hook nil) 
-    (progn (add-hook 'c-mode-hook 'lsp) (setq lsp-c-hook t) (message "lsp-enabled")) 
-    (progn (remove-hook 'c-mode-hook 'lsp) (setq lsp-c-hook nil) (message "lsp-disabled"))
+(defun jw-lsp-if-small-file ()
+  (let*
+    (
+    (limit 5000)
+    (limit-str (number-to-string limit))
+    (num-lines (count-lines (point-min) (point-max)))
+    (big-file-prompt (concat "JW-LSP: File " limit-str "+ lines, run clangd?"))
+    )
+    (if (<= num-lines limit)
+      (lsp)
+      (if (y-or-n-p big-file-prompt)
+        (progn (message "Running clangd.") (lsp))
+      )
+    )
   )
 )
 
-;; (add-hook 'c-mode-hook 'lsp)
+(add-hook 'c-mode-hook 'jw-lsp-if-small-file)
