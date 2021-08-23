@@ -4,19 +4,18 @@
 
 (straight-use-package 'lsp-mode)
 
+; we really want to bail out based on the time clangd takes to process the file
 (defun jw-lsp-if-small-file ()
   (let*
     (
-    (limit 5000)
+    (limit 6000)
     (limit-str (number-to-string limit))
     (num-lines (count-lines (point-min) (point-max)))
-    (big-file-prompt (concat "JW-LSP: File " limit-str "+ lines, run clangd?"))
+    (large-file-msg (concat "JW-LSP: File " limit-str "+ lines, no clangd"))
     )
     (if (<= num-lines limit)
       (lsp)
-      (if (y-or-n-p big-file-prompt)
-        (progn (message "Running clangd.") (lsp))
-      )
+      (message large-file-msg)
     )
   )
 )
