@@ -2,6 +2,7 @@
 
 ;; needs a system clangd, which itself requires clang and libtool
 
+(straight-use-package 'cmake-mode)
 (straight-use-package 'lsp-mode)
 
 ; we really want to bail out based on the time clangd takes to process the file
