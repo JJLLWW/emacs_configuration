@@ -2,6 +2,12 @@
 
 ;; needs a system clangd, which itself requires clang and libtool
 
+;; Hide warning "LSP :: Yasnippet is not installed, but `lsp-enable-snippet' is set to `t'."
+(setq lsp-enable-snippet nil)
+
+;; flymake causes errors when loading a saved desktop "error in process sentinel: flymake-error ..."
+(straight-use-package 'flycheck)
+
 (straight-use-package 'cmake-mode)
 (straight-use-package 'lsp-mode)
 
@@ -15,7 +21,8 @@
     (large-file-msg (concat "JW-LSP: File " limit-str "+ lines, no clangd"))
     )
     (if (<= num-lines limit)
-      (lsp)
+      ;; this is significantly faster if many C files open
+      (lsp-deferred)
       (message large-file-msg)
     )
   )
