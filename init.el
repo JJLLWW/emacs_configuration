@@ -27,8 +27,9 @@
 ; let tab behave as normal if 
 (setq tab-always-indent t)
 
-; () autocompletion in elisp mode
+; () autocompletion in various modes
 (add-hook 'emacs-lisp-mode-hook 'electric-pair-local-mode)
+(add-hook 'python-mode-hook 'electric-pair-local-mode)
 
 ;; (defun (jw-indent) (interactive) 
 ;;   (let ((cur_line (thing-at-point 'line t)))
