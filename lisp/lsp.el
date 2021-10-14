@@ -38,4 +38,8 @@
 
 ;; lsp python mumbo jumbo
 (straight-use-package 'lsp-pyright)
-(add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
+
+;; hackery to avoid other bugs
+(defun jw-py-lsp () (interactive) (require 'lsp-pyright) (lsp))
+
+;; (add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
