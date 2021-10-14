@@ -40,6 +40,6 @@
 (straight-use-package 'lsp-pyright)
 
 ;; hackery to avoid other bugs
-(defun jw-py-lsp () (interactive) (require 'lsp-pyright) (lsp))
-
-;; (add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
+(setq lsp-enable-file-watchers nil)
+;; (defun jw-py-lsp () (interactive) (require 'lsp-pyright) (lsp))
+(add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
