@@ -35,3 +35,7 @@
 )
 
 (add-hook 'c-mode-hook 'jw-lsp-if-small-file)
+
+;; lsp python mumbo jumbo
+(straight-use-package 'lsp-pyright)
+(add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
