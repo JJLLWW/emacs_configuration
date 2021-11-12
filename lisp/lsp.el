@@ -43,3 +43,9 @@
 (setq lsp-enable-file-watchers nil)
 ;; (defun jw-py-lsp () (interactive) (require 'lsp-pyright) (lsp))
 (add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp)))
+
+;; python virtual environment (pip3 install virtualenv)
+(straight-use-package 'pyvenv)
+
+;; dap mode 
+;; pip install "ptvsd>=4.2"

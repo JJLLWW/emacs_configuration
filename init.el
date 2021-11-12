@@ -128,3 +128,4 @@
 
 ; attempt to set up the lsp stuff
 (load (concat user-emacs-directory "lisp/lsp.el"))
+(load (concat user-emacs-directory "lisp/dap.el"))
