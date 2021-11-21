@@ -22,5 +22,6 @@
 (global-set-key (kbd "<f5>") 'dap-continue)
 (global-set-key (kbd "<f10>") 'dap-next)
 (global-set-key (kbd "<f11>") 'dap-step-in)
+(global-set-key (kbd "<escape>") 'dap-disconnect)
 
 ;; dap-disconnect exits the debugging session
