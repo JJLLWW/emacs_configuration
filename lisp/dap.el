@@ -25,3 +25,13 @@
 (global-set-key (kbd "<escape>") 'dap-disconnect)
 
 ;; dap-disconnect exits the debugging session
+;; (defun jw-py-debug () (interactive) (dap-debug "JWPython"))
+(defun jw-py-debug () (interactive) (dap-debug (list :type "python"
+                                                     :args ""
+                                                     :cwd nil
+                                                     :module nil
+                                                     :program nil
+                                                     :request "launch"
+                                                     :name "JWPython")
+                                               )
+       )
