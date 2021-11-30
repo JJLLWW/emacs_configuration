@@ -4,16 +4,6 @@
 (straight-use-package 'dap-mode)
 (require 'dap-python)
 
-;; set default debug template to "Python :: Run file (buffer)" ???
-(dap-register-debug-template "JWPython"
-                             (list :type "python"
-                                   :args ""
-                                   :cwd nil
-                                   :module nil
-                                   :program nil
-                                   :request "launch"
-                                   :name "JWPython"))
-
 ;; (dap-auto-configure-mode)
 
 ;; vscode-like keybindingbs
