@@ -7,7 +7,7 @@
 ;; (dap-auto-configure-mode)
 
 ;; vscode-like keybindingbs
-(global-set-key (kbd "C-d") 'dap-debug)
+(global-set-key (kbd "C-d") 'jw-py-debug)
 (global-set-key (kbd "C-b") 'dap-breakpoint-toggle)
 (global-set-key (kbd "<f5>") 'dap-continue)
 (global-set-key (kbd "<f10>") 'dap-next)
