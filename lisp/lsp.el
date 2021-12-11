@@ -49,3 +49,9 @@
 
 ;; dap mode 
 ;; pip install "ptvsd>=4.2"
+
+;; company elisp
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+;; TODO - only do this on windows OS
+(load (concat user-emacs-directory "lisp/powershell-lsp.el"))
