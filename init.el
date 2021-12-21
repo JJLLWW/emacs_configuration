@@ -134,3 +134,5 @@
 
 ;; disable the bell
 (setq ring-bell-function 'ignore)
+(load (concat user-emacs-directory "lisp/node-lsp.el"))
+
