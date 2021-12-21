@@ -131,3 +131,6 @@
 (load (concat user-emacs-directory "lisp/dap.el"))
 (load (concat user-emacs-directory "lisp/linending.el"))
 ;; (load (concat user-emacs-directory ""))
+
+;; disable the bell
+(setq ring-bell-function 'ignore)
