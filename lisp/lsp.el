@@ -2,8 +2,6 @@
 
 ;; needs a system clangd, which itself requires clang and libtool
 
-(straight-use-package 'cmake-mode)
-
 ;; Hide warning "LSP :: Yasnippet is not installed, but `lsp-enable-snippet' is set to `t'."
 (setq lsp-enable-snippet nil)
 
@@ -50,8 +48,4 @@
 ;; dap mode 
 ;; pip install "ptvsd>=4.2"
 
-;; company elisp
-(add-hook 'emacs-lisp-mode-hook 'company-mode)
-
-;; TODO - only do this on windows OS
-(load (concat user-emacs-directory "lisp/powershell-lsp.el"))
+(if (eq system-type 'windows-nt) (load (concat user-emacs-directory "lisp/powershell-lsp.el")))

@@ -130,6 +130,8 @@
 (load (concat user-emacs-directory "lisp/lsp.el"))
 (load (concat user-emacs-directory "lisp/dap.el"))
 (load (concat user-emacs-directory "lisp/linending.el"))
+(load (concat user-emacs-directory "lisp/elisp.el"))
+(load (concat user-emacs-directory "lisp/cmake.el"))
 ;; (load (concat user-emacs-directory ""))
 
 ;; disable the bell
