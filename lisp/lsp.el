@@ -49,3 +49,14 @@
 ;; pip install "ptvsd>=4.2"
 
 (if (eq system-type 'windows-nt) (load (concat user-emacs-directory "lisp/powershell-lsp.el")))
+
+;; lsp-ui
+(straight-use-package 'lsp-ui)
+(require 'lsp-ui)
+(lsp-ui-doc-enable t)
+; no mouse required
+(setq lsp-ui-doc-show-with-cursor t)
+
+;; ;; better autocompletion in lsp buffers
+;; (straight-use-package 'helm-lsp)
+;; (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
