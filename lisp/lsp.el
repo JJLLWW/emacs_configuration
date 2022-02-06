@@ -59,4 +59,11 @@
 
 ;; ;; better autocompletion in lsp buffers
 ;; (straight-use-package 'helm-lsp)
-;; (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+;; (straight-use-package 'helm-xref)
+;; (require 'helm-xref)
+;; (define-key global-map [remap find-file] #'helm-find-files)
+
+; better M-x autocompletion
+(straight-use-package 'helm)
+(require 'helm)
+(define-key global-map [remap execute-extended-command] #'helm-M-x)
